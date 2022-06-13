@@ -159,7 +159,7 @@ function Dashboard() {
 
   function mapRegister() {
     return (
-      <Container>
+      <Container fluid className="loginPage">
         <Row className="justify-content-center vh-100 align-items-center">
           <Col lg={5}>
             <form onSubmit={login}>

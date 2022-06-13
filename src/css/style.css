@@ -2,6 +2,9 @@
 html, body {
     overflow: hidden
 }
+.loginPage{
+    background: #f4f4f4
+}
 .define-scroll-container{
  padding: 10px;
  height: calc(100vh - 40px);
@@ -20,6 +23,8 @@ html, body {
 .login-container{
     border-radius: 5px;
     border: thin solid #ececec;
+    background: #fff;
+    box-shadow: grey 0px 1px 5px;
 }
 .login-header{
     background: #f4f4f4;

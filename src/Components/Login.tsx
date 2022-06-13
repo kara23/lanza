@@ -50,7 +50,7 @@ export default function Login() {
       });
   };
   return (
-    <Container>
+    <Container fluid className="loginPage">
       <Row className="justify-content-center vh-100 align-items-center">
         <Col lg={4}>
           <form onSubmit={login}>
