@@ -1,0 +1,91 @@
+
+html, body {
+    overflow: hidden
+}
+.define-scroll-container{
+ padding: 10px;
+ height: calc(100vh - 40px);
+ overflow-y: auto
+}
+.table-content {
+    transition: linear 0.3s;
+}
+.table-content:hover{
+    box-shadow: grey 0px 3px 10px;
+    background: #f4f4f4
+}
+.login-elements{
+    padding: 0px 15px 15px 15px
+}
+.login-container{
+    border-radius: 5px;
+    border: thin solid #ececec;
+}
+.login-header{
+    background: #f4f4f4;
+    border-bottom: thin solid #ececec;
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 15px;
+}
+input {
+    height: 2.7rem;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    border: thin solid #ececec;
+    width: 100%;
+    outline: none !important;
+}
+.left-nav-container{
+    height: 100vh; 
+    border-right: thin solid #ececec;
+    padding: 10px
+}
+
+.text-red{
+    color: red !important
+}
+.login-btn{
+    background: #39c;
+    border: hidden !important;
+}
+
+.login-btn:hover{
+    background: #069;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    height: 2rem !important;
+}
+.text-medium {
+    font-weight: 700 !important;
+}
+.text-white {
+    color: #fff !important;
+}
+
+.icon-container{
+    border: thin solid #ececec;
+    border-radius: 5px;
+    padding: 20px;
+    transition: linear 0.3s
+}
+.icon-container:hover{
+    background: #ececec;
+    cursor: pointer;
+}
+
+.text-bold{
+    font-weight: 900 !important;
+}
+
+.text-medium{
+    font-weight: 700 !important;
+}
+
+.border-b-color{
+    border-bottom: thin solid #ececec;
+}
