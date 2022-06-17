@@ -13,8 +13,6 @@ export default function Resources() {
           .then((response) => {
             if (response.status === 200) {
               setResources(response.data.data);
-              // console.log(response.status);
-              // return response.data.data;
             }
           })
           .catch((error) => {

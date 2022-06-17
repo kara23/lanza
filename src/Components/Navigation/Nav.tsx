@@ -8,7 +8,6 @@ export default function Nav() {
             <Row>
                 <Col>
                 <div className="left-nav-container">
-            {/* <LeftNav /> */}
             <Row className="align-items-center">
               <Col lg={6} className="pt-3">
                 <Row className="justify-content-center align-items-center">
