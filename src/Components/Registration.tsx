@@ -1,30 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import "../css/style.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 
 export default function Registration() {
-const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState("d-none");
   let [error, setError] = useState("");
 
   const baseURL = "https://reqres.in/api/register";
   // declare interface
-    interface registrationValue {
+  interface registrationValue {
     email: string;
     password: string;
     loginResponse: string;
   }
 
-const details: registrationValue = {
+  const details: registrationValue = {
     email: email,
     password: password,
-    loginResponse: (error = "Invalid login"),
+    loginResponse: (error = "Invalid details"),
   };
 
-let register = async (e: any) => {
+  useEffect(() => {
+    document.title = "Lanza | Registration";
+  }, []);
+
+  let register = async (e: any) => {
     e.preventDefault();
     await axios
       .post(baseURL, {
@@ -36,20 +40,17 @@ let register = async (e: any) => {
           alert("Response: Successful. \nToken: " + response.data.token);
           setError("");
           setShowError("d-none");
-          console.log(response.data.token);
         } else {
           setShowError("d-block");
           setError(details.loginResponse);
         }
       })
-      .catch((error:any) => {
-        setError("Error: Bad request");
-        setShowError("d-block");
+      .catch((error: any) => {
         console.log(error);
       });
   };
 
-return(
+  return (
     <Container fluid className="loginPage">
       <Row className="justify-content-center vh-100 align-items-center">
         <Col lg={4}>
