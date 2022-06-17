@@ -1,31 +1,30 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import "../css/style.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
-const baseURL = "https://reqres.in/api/login";
 
-// declare interface
-interface loginValue {
-  email: string;
-  password: string;
-  loginResponse: string;
-}
-
-export default function Login() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+export default function Registration() {
+const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  let [error, setError] = useState("");
   const [showError, setShowError] = useState("d-none");
+  let [error, setError] = useState("");
 
-  const details: loginValue = {
+  const baseURL = "https://reqres.in/api/register";
+  // declare interface
+    interface registrationValue {
+    email: string;
+    password: string;
+    loginResponse: string;
+  }
+
+const details: registrationValue = {
     email: email,
     password: password,
     loginResponse: (error = "Invalid login"),
   };
-  let login = async (e: any) => {
+
+let register = async (e: any) => {
     e.preventDefault();
     await axios
       .post(baseURL, {
@@ -34,28 +33,29 @@ export default function Login() {
       })
       .then((response) => {
         if (response.status === 200) {
-          document.title = "Lanza | Users";
           alert("Response: Successful. \nToken: " + response.data.token);
+          setError("");
           setShowError("d-none");
-          navigate("/Users");
+          console.log(response.data.token);
         } else {
           setShowError("d-block");
           setError(details.loginResponse);
         }
       })
-      .catch((error) => {
-        setShowError("d-block");
+      .catch((error:any) => {
         setError("Error: Bad request");
+        setShowError("d-block");
         console.log(error);
       });
   };
-  return (
+
+return(
     <Container fluid className="loginPage">
       <Row className="justify-content-center vh-100 align-items-center">
         <Col lg={4}>
-          <form onSubmit={login}>
+          <form onSubmit={register}>
             <div className="login-container">
-              <div className="login-header">Login</div>
+              <div className="login-header text-medium">Register</div>
               <div className="login-elements">
                 <input
                   type="email"
@@ -68,18 +68,15 @@ export default function Login() {
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
-                  className="mb-1"
+                  className="mb-0"
                 />
                 <br />
-                <label className={showError + " text-red"}>
-                  {error}
-                  <br />
-                </label>
+                <label className={showError + " text-red"}>{error}</label>
                 <Button
                   type="submit"
                   className="btn login-btn text-white text-medium mt-3"
                 >
-                  Login
+                  Register
                 </Button>
               </div>
             </div>

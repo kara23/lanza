@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
 import Login from './Components/Login';
-import LandingPage from './Components/LandingPage';
+import Users from './Components/Users';
+import Resources from './Components/Resources';
+import Registration from './Components/Registration';
 
 function App() {
  
@@ -10,7 +12,9 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route path='/' element={<Login/>} />
-              <Route path='/Landing_page' element={<LandingPage/>} />
+              <Route path='/users' element={<Users/>} />
+              <Route path='/resources' element={<Resources/>} />
+              <Route path='/registration' element={<Registration/>} />
           </Routes>
         </BrowserRouter>
      </>
